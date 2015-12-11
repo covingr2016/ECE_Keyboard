@@ -1,0 +1,30 @@
+//Master control module, instantiates all other modules
+module master(CLK_50MHz, resetn,
+LCD_ON, LCD_RS, LCD_EN, LCD_RW, LCD_DATA, 
+KEY,SW,HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7,
+LEDG, LEDR, PS2_DAT, PS2_CLK, GPIO_0);
+
+//Upper Level stuff (originally in PS2)
+//  Push Buttons
+  input  [3:0]  KEY;
+  //  DPDT Switches 
+  input  [17:0]  SW;
+  //  7-SEG Displays
+  output  [6:0]  HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7;
+  //  LEDs
+  output  [8:0]  LEDG;  //  LED Green[8:0]
+  output  [17:0]  LEDR;  //  LED Red[17:0]
+  //  PS2 data and clock lines        
+  input    PS2_DAT;
+  input    PS2_CLK;
+  //  GPIO Connections
+  inout  [35:0]  GPIO_0;
+  
+  input CLK_50MHz, resetn;
+
+
+
+PS2 keyboard(.CLOCK_50(CLK_50MHz), .KEY(KEY), .SW(SW), 
+.HEX0(HEX0),.HEX1(HEX1),.HEX2(HEX2),.HEX3(HEX3),.HEX4(HEX4),.HEX5(HEX5),.HEX6(HEX6),
+.data1(data1),.data2(data2),.data3(data3),.data4(data4), 
+.PS2_DAT(PS2_DAT), .PS2_CLK(PS2_CLK));

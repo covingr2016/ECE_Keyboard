@@ -1,0 +1,40 @@
+library verilog;
+use verilog.vl_types.all;
+entity Master is
+    port(
+        altera_reserved_tms: in     vl_logic;
+        altera_reserved_tck: in     vl_logic;
+        altera_reserved_tdi: in     vl_logic;
+        altera_reserved_tdo: out    vl_logic;
+        CLK_50MHz       : in     vl_logic;
+        resetn          : in     vl_logic;
+        KEY             : in     vl_logic_vector(2 downto 0);
+        SW              : in     vl_logic_vector(17 downto 0);
+        LCD_ON          : out    vl_logic;
+        LCD_RS          : out    vl_logic;
+        LCD_EN          : out    vl_logic;
+        LCD_RW          : out    vl_logic;
+        LCD_DATA        : out    vl_logic_vector(7 downto 0);
+        PS2_DAT         : in     vl_logic;
+        PS2_CLK         : in     vl_logic;
+        AUD_XCK         : out    vl_logic;
+        AUD_DACDAT      : out    vl_logic;
+        AUD_ADCDAT      : in     vl_logic;
+        I2C_SCLK        : out    vl_logic;
+        TD_CLK27        : in     vl_logic;
+        AUD_BCLK        : out    vl_logic;
+        AUD_ADCLRCK     : out    vl_logic;
+        AUD_DACLRCK     : out    vl_logic;
+        I2C_SDAT        : out    vl_logic;
+        LEDG            : out    vl_logic_vector(8 downto 0);
+        LEDR            : out    vl_logic_vector(17 downto 0);
+        HEX0            : out    vl_logic_vector(6 downto 0);
+        HEX1            : out    vl_logic_vector(6 downto 0);
+        HEX2            : out    vl_logic_vector(6 downto 0);
+        HEX3            : out    vl_logic_vector(6 downto 0);
+        HEX4            : out    vl_logic_vector(6 downto 0);
+        HEX5            : out    vl_logic_vector(6 downto 0);
+        HEX6            : out    vl_logic_vector(6 downto 0);
+        HEX7            : out    vl_logic_vector(6 downto 0)
+    );
+end Master;
